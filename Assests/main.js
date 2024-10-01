@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(changeSlide, 4000); // Change slide every 5 seconds
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // Existing code...
+  
 
     // New animations for About section
     const slideLeftElems = document.querySelectorAll('.slide-in-left');
@@ -157,4 +157,37 @@ document.addEventListener('DOMContentLoaded', function() {
         void aboutImageContainer.offsetWidth; // Trigger reflow
         aboutImageContainer.classList.add('shine');
     }, 3000); // Repeat every 3 seconds
+});
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const servicesTitle = document.querySelector('#services h2');
+    const serviceElements = document.querySelectorAll('.service-content, .service-image');
+
+    const animateElems = function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const elemObserver = new IntersectionObserver(animateElems, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Animate the services title underline
+    elemObserver.observe(servicesTitle);
+
+    // Animate service elements
+    serviceElements.forEach(elem => elemObserver.observe(elem));
 });
