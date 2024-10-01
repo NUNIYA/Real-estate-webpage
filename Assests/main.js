@@ -191,3 +191,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate service elements
     serviceElements.forEach(elem => elemObserver.observe(elem));
 });
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const productsTitle = document.querySelector('#products h2');
+    const productItems = document.querySelectorAll('.product-item');
+    const productInfo = document.querySelector('.product-info');
+
+    const animateElems = function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const elemObserver = new IntersectionObserver(animateElems, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Animate the products title underline
+    elemObserver.observe(productsTitle);
+
+    // Animate product items
+    productItems.forEach(item => elemObserver.observe(item));
+
+    // Animate product info section
+    elemObserver.observe(productInfo);
+});
