@@ -96,3 +96,65 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the slide show
     setInterval(changeSlide, 4000); // Change slide every 5 seconds
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code...
+
+    // New animations for About section
+    const slideLeftElems = document.querySelectorAll('.slide-in-left');
+    const slideRightElems = document.querySelectorAll('.slide-in-right');
+    const aboutTitle = document.querySelector('#about h2');
+    const featureItems = document.querySelectorAll('.feature-item');
+
+    const animateElems = function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const elemObserver = new IntersectionObserver(animateElems, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    slideLeftElems.forEach(elem => elemObserver.observe(elem));
+    slideRightElems.forEach(elem => elemObserver.observe(elem));
+
+    // Animate the about title underline
+    const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutTitle.classList.add('appear');
+                titleObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    titleObserver.observe(aboutTitle);
+
+    // Animate feature list items
+    featureItems.forEach((item, index) => {
+        const itemObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        item.classList.add('appear');
+                    }, index * 200); // Stagger the animation
+                    itemObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        itemObserver.observe(item);
+    });
+
+    // Continuous image shine effect
+    const aboutImageContainer = document.querySelector('.about-image-container');
+    setInterval(() => {
+        aboutImageContainer.classList.remove('shine');
+        void aboutImageContainer.offsetWidth; // Trigger reflow
+        aboutImageContainer.classList.add('shine');
+    }, 3000); // Repeat every 3 seconds
+});
