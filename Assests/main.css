@@ -416,26 +416,8 @@ footer {
   position: relative;
 }
 
-.service-image::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: -20px;
-  bottom: -20px;
-  background-color: var(--color-primary);
-  z-index: -1;
-  opacity: 0.1;
-  transition: all 0.3s ease-in-out;
-}
 
-.service-item:hover .service-image::after {
-  top: 10px;
-  left: 10px;
-  right: -10px;
-  bottom: -10px;
-  opacity: 0.2;
-}
+
 
 .service-icon {
   font-size: 3rem;
