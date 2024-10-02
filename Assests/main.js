@@ -228,3 +228,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate product info section
     elemObserver.observe(productInfo);
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const faqTitle = document.querySelector('#faq h2');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Toggle the clicked item
+            item.classList.toggle('active');
+        });
+    });
+
+    // Fade-in animation for FAQ items
+    const faqObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                faqObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    faqItems.forEach(item => faqObserver.observe(item));
+
+    // Animate the FAQ title underline
+    faqObserver.observe(faqTitle);
+});

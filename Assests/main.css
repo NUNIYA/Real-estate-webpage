@@ -613,6 +613,83 @@ footer {
       flex-direction: column;
   }
 }
+
+
+
+
+
+#faq {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+#faq h2 {
+    color: var(--color-tertiary);
+    font-size: 3rem;
+    margin-bottom: 50px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+#faq h2::after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 2px;
+    background-color: var(--color-primary);
+    bottom: -15px;
+    left: 45%;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-out;
+}
+
+#faq h2.appear::after {
+    transform: scaleX(1);
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-tertiary);
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '\002B';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 1000px;
+}
 @media (max-width: 991px) {
   .hero h1 {
       font-size: 2.5rem;
