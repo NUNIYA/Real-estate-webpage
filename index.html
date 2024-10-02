@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="Assests/main.css">
     
 </head>
-<body>
+    <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -198,6 +198,43 @@
                 <div class="faq-item fade-in">
                     <div class="faq-question">What kind of support do you offer after implementation?</div>
                     <div class="faq-answer">We offer comprehensive support to ensure you get the most out of our systems. This includes thorough training for your team, ongoing technical support, regular system updates, and continuous performance monitoring. Our dedicated support team is always available to address any questions or issues you might encounter, ensuring smooth operation of your systems at all times.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="partner" class="section">
+        <div class="container">
+            <h2 class="fade-in">Partner With Us</h2>
+            <p class="partner-description fade-in">
+                PARTNER WITH US AND EXPERIENCE THE TRANSFORMATIVE POWER OF TECHNOLOGY. WE'LL HELP YOU BUILD SMARTER, FASTER, AND MORE EFFICIENTLY, PROPELLING YOUR CONSTRUCTION AND REAL ESTATE BUSINESS TO NEW HEIGHTS.
+            </p>
+            <div class="partner-form fade-in">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form method="POST" action="php/form.php" class="php-email-form" id="form">
+                            <div class="main-error error d-none">Error Occurred</div>
+                            <div class="form-group mb-4">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="message">Description</label>
+                                <textarea class="form-control" name="message" id="message" rows="5" placeholder="How can we work together?" required></textarea>
+                            </div>
+                            <div class="error-message error d-none" id="error-msg"></div>
+                            <div class="sent-message d-none">Your message has been sent. Thank you!</div>
+                            <div class="text-center">
+                                <button type="submit" class="submit-btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

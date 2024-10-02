@@ -265,3 +265,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate the FAQ title underline
     faqObserver.observe(faqTitle);
 });
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeInElements.forEach(element => {
+        observer.observe(element);
+    });
+});
