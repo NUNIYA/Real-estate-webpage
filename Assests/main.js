@@ -288,3 +288,22 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 });
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const formContainer = document.querySelector('.partner-form');
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target); // stop observing once the animation is triggered
+            }
+        });
+    }, { threshold: 0.1 }); // 10% visibility triggers the animation
+
+    observer.observe(formContainer);
+});
