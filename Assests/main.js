@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const elemObserver = new IntersectionObserver(animateElems, {
-        threshold: 0,
+        threshold: 0.22,
         rootMargin: '0px 0px -100px 0px'
     });
 
