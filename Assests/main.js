@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const elemObserver = new IntersectionObserver(animateElems, {
-        threshold: 0.22,
+        threshold: 0.32,
         rootMargin: '0px 0px -100px 0px'
     });
 
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const elemObserver = new IntersectionObserver(animateElems, {
-        threshold: 0.2,
+        threshold: 0.32,
         rootMargin: '0px 0px -50px 0px'
     });
 
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const elemObserver = new IntersectionObserver(animateElems, {
-        threshold: 0.2,
+        threshold: 0.32,
         rootMargin: '0px 0px -50px 0px'
     });
 
