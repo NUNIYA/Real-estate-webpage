@@ -10,14 +10,14 @@
 body {
   font-family: var(--font-default);
 }
-
+/* nav bar style */
 .navbar {
   transition: all 0.3s ease-in-out;
   background-color:transparent;
   
-    height: 70px; /* Set a fixed height */
-    display: flex; /* Ensure flex layout for alignment */
-    align-items: center; /* Center items vertically */
+    height: 70px; 
+    display: flex; 
+    align-items: center;
   
 }
 
@@ -135,42 +135,44 @@ img, div, section {
   }
 }
 
-
 /* Logo styles */
 .logo-image {
-  max-height: 70px; /* Adjust max height */
-  filter: drop-shadow(0px 0px 10px rgba(233, 200, 200, 0.8)); /* Glow effect when at the top */
+  max-height: 70px; 
+  filter: drop-shadow(0px 0px 10px rgba(233, 200, 200, 0.8));
   margin-right: 6px; 
   padding-left: 10px; 
-  transform: scale(2.4); /* Increased scale */
+  transform: scale(2.4); 
   margin-left: 23px;
-  transition: filter 0.3s ease; /* Smooth transition for filter */
+  transition: filter 0.3s ease; 
 }
 
 .logo-image.no-glow {
-  filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.8)); /* No glow effect when scrolled */
+  filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.8)); 
 }
+
+/* responsive style for logo */
 
 @media (max-width: 768px) {
   .navbar {
-    height: 60px; /* Adjust for mobile */
+    height: 60px; 
   }
 
   .logo-image {
-    max-height: 40px; /* Logo size for mobile */
+    max-height: 40px; 
   }
 }
 
 @media (min-width: 769px) {
   .navbar {
-    height: 70px; /* Height for larger screens */
+    height: 70px; 
   }
 
   .logo-image {
-    max-height: 60px; /* Logo size for larger screens */
+    max-height: 60px; 
   }
 }
 
+/* hero section style */
 .hero {
   height: 100vh;
   position: relative;
@@ -273,33 +275,34 @@ img, div, section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* responsive style for hero */
 @media (max-width: 480px) {
   .hero-content h1 {
-    font-size: 2rem; /* Reduce the size of the main heading */
+    font-size: 2rem; 
   }
 
   .hero-content .animated-text span {
-    font-size: 1rem; /* Reduce the size of the animated text */
+    font-size: 1rem;
   }
 
   .hero-content p {
-    font-size: 1rem; /* Adjust the paragraph font size */
+    font-size: 1rem;
   }
 
   .hero-content {
-    padding: 10px; /* Add some padding to avoid content touching the edges */
+    padding: 10px; 
   }
   .hero-content .learn-more-btn {
-    padding: 10px 20px; /* Adjust button size */
-    font-size: 0.9rem;  /* Make the button text a little smaller */
+    padding: 10px 20px; 
+    font-size: 0.9rem;  
   }
 
   .animated-text {
-    height: 30px; /* Adjust height for smaller screens */
+    height: 30px;
   }
 
   .animated-text span {
-    font-size: 1rem; /* Reduce text size for better fit */
+    font-size: 1rem;
   }
   @keyframes spin_words {
     0%, 33% { transform: translateY(0%); }
@@ -316,9 +319,7 @@ img, div, section {
 }
 
 
-#about {
-  background-color: #f8f9fa;
-}
+/* About section styles */
 
 .fade-in {
   opacity: 0;
@@ -330,8 +331,6 @@ img, div, section {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 #about h2 {
   color: var(--color-tertiary);
@@ -372,11 +371,6 @@ img, div, section {
   overflow: hidden;
 }
 
-
-
-
-
-/* About section styles */
 #about {
   background-color: #ffffff !important;
     min-height: 100vh;
@@ -391,25 +385,23 @@ img, div, section {
   margin-bottom: 50px;
   font-family: var(--font-primary);
   font-weight: 700;
-  text-align: center; /* Center the heading */
+  text-align: center; 
   position: relative;
-  display: block; /* Ensure it takes full width */
+  display: block; 
 }
 
 
 #about h2::after {
   content: '';
   position: absolute;
-  width: 10%; /* Make the underline smaller */
+  width: 10%; 
   height: 2px;
   background-color: var(--color-primary);
   bottom: -10px;
-  left: 45%; /* Adjust to keep it centered */
+  left: 45%; 
   transform: scaleX(0);
   transition: transform 0.5s ease-out;
 }
-
-
 
 #about h2.appear::after {
     transform: scaleX(1);
@@ -453,7 +445,7 @@ img, div, section {
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     height: 0;
-    padding-bottom: 133.33%; /* This creates a 3:4 aspect ratio */
+    padding-bottom: 133.33%; 
 }
 
 .about-image-container img {
@@ -579,9 +571,6 @@ img, div, section {
   flex: 1;
   position: relative;
 }
-
-
-
 
 .service-icon {
   font-size: 3rem;
@@ -784,7 +773,7 @@ img, div, section {
 
 
 
-
+/* faq section styles */
 
 #faq {
     background-color: #f8f9fa;
@@ -869,9 +858,10 @@ img, div, section {
 #partner {
   background-color: #ffffff;
   padding: 100px 0;
-  perspective: 1000px; /* Add perspective for the 3D effect */
+  perspective: 1000px; 
 }
 
+/* contact us section styles */
 #partner h2 {
   color: var(--color-tertiary);
   font-size: 3rem;
@@ -905,22 +895,19 @@ img, div, section {
   font-size: 1.2rem;
   color: var(--color-secondary);
 }
-
-/* Initial state for the form (hidden and from behind) */
 .partner-form {
   background-color: #f8f9fa;
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  opacity: 0; /* Start hidden */
-  transform: scale(0.8) translateZ(-200px); /* Shrink and move back */
-  transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth animation */
+  opacity: 0;
+  transform: scale(0.8) translateZ(-200px); 
+  transition: transform 1s ease-out, opacity 1s ease-out; 
 }
 
-/* When form enters the viewport, animate it */
 .partner-form.appear {
   opacity: 1;
-  transform: scale(1) translateZ(0); /* Restore to original size and position */
+  transform: scale(1) translateZ(0); 
 }
 
 .partner-form label {

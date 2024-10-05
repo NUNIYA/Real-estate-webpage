@@ -1,4 +1,3 @@
-// This script manages the navigation behavior, smooth scrolling, slide show, animations on sections, and FAQ toggling on a webpage.
 
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
@@ -48,25 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: targetSection.offsetTop - 70,
                 behavior: 'smooth'
             });
-            // Close the mobile menu when a nav item is clicked
+           
             if (window.innerWidth <= 991) {
                 navbarCollapse.classList.remove('show');
-                navbarCollapse.classList.remove('text-center'); // Remove centering class
+                navbarCollapse.classList.remove('text-center'); 
             }
         });
     });
 
-    // Center align nav items on mobile when menu is open
+   
     navbarToggler.addEventListener('click', function() {
         if (window.innerWidth <= 991) {
             navbarCollapse.classList.toggle('text-center');
         }
     });
 
-    // Start the slide show
-    setInterval(changeSlide, 4000); // Change slide every 4 seconds
+    
+    setInterval(changeSlide, 4000); 
 
-    // Animation for various sections
+    
     const animateElems = function(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -81,23 +80,21 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observing elements for animations
+    
     document.querySelectorAll('.slide-in-left, .slide-in-right, .feature-item, .service-content, .service-image, .product-item, .faq-item, .fade-in, .partner-form, .product-info').forEach(elem => {
         elemObserver.observe(elem);
     });
 
-    // FAQ toggle functionality
+    
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
-            // Close all other items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
-            // Toggle the clicked item
             item.classList.toggle('active');
         });
     });
