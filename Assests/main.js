@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Observing elements for animations
-    document.querySelectorAll('.slide-in-left, .slide-in-right, .feature-item, .service-content, .service-image, .product-item, .faq-item, .fade-in, .partner-form').forEach(elem => {
+    document.querySelectorAll('.slide-in-left, .slide-in-right, .feature-item, .service-content, .service-image, .product-item, .faq-item, .fade-in, .partner-form, .product-info').forEach(elem => {
         elemObserver.observe(elem);
     });
 
