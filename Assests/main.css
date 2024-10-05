@@ -14,15 +14,18 @@ body {
 .navbar {
   transition: all 0.3s ease-in-out;
   background-color:transparent;
+  
+    height: 70px; /* Set a fixed height */
+    display: flex; /* Ensure flex layout for alignment */
+    align-items: center; /* Center items vertically */
+  
 }
 
 .navbar.scrolled {
   background-color: var(--color-tertiary);
 }
 
-.navbar-brand img {
-  max-height: 40px;
-}
+
 
 .nav-link {
   color: white !important;
@@ -135,10 +138,38 @@ img, div, section {
 
 /* Logo styles */
 .logo-image {
-  max-height: 40px;
-  filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.8));
+  max-height: 70px; /* Adjust max height */
+  filter: drop-shadow(0px 0px 10px rgba(233, 200, 200, 0.8)); /* Glow effect when at the top */
+  margin-right: 6px; 
+  padding-left: 10px; 
+  transform: scale(2.4); /* Increased scale */
+  margin-left: 23px;
+  transition: filter 0.3s ease; /* Smooth transition for filter */
 }
 
+.logo-image.no-glow {
+  filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.8)); /* No glow effect when scrolled */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px; /* Adjust for mobile */
+  }
+
+  .logo-image {
+    max-height: 40px; /* Logo size for mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    height: 70px; /* Height for larger screens */
+  }
+
+  .logo-image {
+    max-height: 60px; /* Logo size for larger screens */
+  }
+}
 
 .hero {
   height: 100vh;
@@ -972,6 +1003,8 @@ img, div, section {
   height: auto;
   margin-bottom: -20px;
   display: block;
+ 
+  
 }
 
 .social-icons {
