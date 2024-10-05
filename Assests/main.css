@@ -242,6 +242,41 @@ img, div, section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem; /* Reduce the size of the main heading */
+  }
+
+  .hero-content .animated-text span {
+    font-size: 1rem; /* Reduce the size of the animated text */
+  }
+
+  .hero-content p {
+    font-size: 1rem; /* Adjust the paragraph font size */
+  }
+
+  .hero-content {
+    padding: 10px; /* Add some padding to avoid content touching the edges */
+  }
+  .hero-content .learn-more-btn {
+    padding: 10px 20px; /* Adjust button size */
+    font-size: 0.9rem;  /* Make the button text a little smaller */
+  }
+
+  .animated-text {
+    height: 30px; /* Adjust height for smaller screens */
+  }
+
+  .animated-text span {
+    font-size: 1rem; /* Reduce text size for better fit */
+  }
+  @keyframes spin_words {
+    0%, 33% { transform: translateY(0%); }
+    33.33%, 66% { transform: translateY(-100%); }
+    66.66%, 100% { transform: translateY(-200%); }
+  }
+}
+
 
 
 
