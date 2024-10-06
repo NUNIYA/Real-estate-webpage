@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -17,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 const correspondingNavLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
                 navLinks.forEach(link => link.classList.remove('active'));
-                correspondingNavLink.classList.add('active');
+                if (correspondingNavLink) {
+                    correspondingNavLink.classList.add('active');
+                }
             }
         });
     }
@@ -28,13 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
         slides[currentSlide].classList.add('active');
     }
 
-    window.addEventListener('scroll', function() {
+    function updateNavbarBackground() {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+    }
 
+    window.addEventListener('scroll', function() {
+        updateNavbarBackground();
         setActiveNavLink();
     });
 
@@ -47,25 +51,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: targetSection.offsetTop - 70,
                 behavior: 'smooth'
             });
-           
+
+            // Close navbar collapse on link click if on mobile
             if (window.innerWidth <= 991) {
                 navbarCollapse.classList.remove('show');
-                navbarCollapse.classList.remove('text-center'); 
+                navbarToggler.setAttribute('aria-expanded', 'false');
+                navbarToggler.classList.add('collapsed');
+            }
+        });
+    });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: 'smooth'
+            });
+            // Close the mobile menu when a nav item is clicked
+            if (window.innerWidth <= 991) {
+                navbarCollapse.classList.remove('show');
+                navbarCollapse.classList.remove('text-center'); // Remove centering class
             }
         });
     });
 
-   
-    navbarToggler.addEventListener('click', function() {
-        if (window.innerWidth <= 991) {
-            navbarCollapse.classList.toggle('text-center');
-        }
-    });
+    setInterval(changeSlide, 4000);
 
-    
-    setInterval(changeSlide, 4000); 
-
-    
     const animateElems = function(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -80,12 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -100px 0px'
     });
 
-    
     document.querySelectorAll('.slide-in-left, .slide-in-right, .feature-item, .service-content, .service-image, .product-item, .faq-item, .fade-in, .partner-form, .product-info').forEach(elem => {
         elemObserver.observe(elem);
     });
 
-    
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -98,4 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('active');
         });
     });
+
+    // Logo responsiveness
+    window.addEventListener("scroll", function() {
+        const logo = document.querySelector('.logo-image');
+        if (window.scrollY > 0) {
+            logo.classList.add('no-glow');
+        } else {
+            logo.classList.remove('no-glow');
+        }
+    });
+
+    // Initial navbar background update
+    updateNavbarBackground();
 });
