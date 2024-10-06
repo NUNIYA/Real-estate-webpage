@@ -25,7 +25,7 @@ $mail->Port       = 587;
 
 // Recipients
 $mail->setFrom($email, $name);                        
-$mail->addAddress('getamesaynuniyat@gmail.com', 'Tewo');     
+$mail->addAddress('nuniyat.g@gmail.com', 'Tewo');     
 
 // Content
 $mail->isHTML(false);                                 
@@ -34,4 +34,3 @@ $mail->Body    = $message;
 
 // Send email
 $mail->send();
-
